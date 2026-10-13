@@ -3,11 +3,14 @@ import 'terminal-externa.dart';
 import 'tienda.dart';
 
 void main() {
-  final tienda = Tienda(ServicioPago(), TerminalExterna());
+  final tiendaConServicio = Tienda(ServicioPago());
 
-  tienda.finalizaCompra(100, 'servicioPago');
-  tienda.finalizaCompra(100, 'terminalExterna');
+  final tiendaConTerminal = Tienda(TerminalAdapter(TerminalExterna()));
 
-  // La tienda mezcla su tarea de finalizar la compra
-  // con la tarea de convertir pesos a dólares, lo cual no es ideal
+  tiendaConServicio.finalizarCompra(158.50); // pesos
+  tiendaConTerminal.finalizarCompra(250.50); // dólares
+
+  // La tienda ya no mezcla su tarea de finalizar la compra
+  // con la tarea de convertir pesos a dólares, 
+  // pero ahora tenemos dos instancias de tienda
 }
