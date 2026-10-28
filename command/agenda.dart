@@ -7,8 +7,9 @@ class Agenda {
         'Hacer UI de la app móvil'
   ];
 
-  String? eliminada;
-  int? posicionAnterior;
+  // Guardan la información de una tarea eliminada
+  String? eliminada; // la tarea eliminada
+  int? posicionAnterior; // la posición de la tarea en el arreglo
 
   void eliminar(int posicion) {
     eliminada = tareas.removeAt(posicion);
